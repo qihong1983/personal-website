@@ -6,7 +6,7 @@ export const Title = ({ content, size = 3 }) => (
         background: linear-gradient(-45deg, #D20B54 0%, #FFB849 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        line-height: 4rem;
+        line-height: 4.5rem;
         font-family: brandon;
         font-weight: 600;
         color: #D20B54;
