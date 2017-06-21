@@ -55,7 +55,7 @@ export default class Landing extends PureComponent {
 
             <div className='card'>
               <div className='content'>
-                <Title content='🔥 Side Projects & Open source software' />
+                <Title content='🔥 Side Projects & OSS' />
 
                 <div className='projects'>
                   <Article

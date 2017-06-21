@@ -13,14 +13,14 @@ export const Article = ({path, name, about}) => (
           display: block;
           padding: 1rem;
           transition: all 0.2s linear;
+          border-radius: 0.4rem;
         }
 
         .container:hover {
-          border: 1px solid grey;
           transform: scale(1.1);
-          border-radius: 0.4rem;
           box-shadow: 0 0.2rem 3.5rem rgba(0,0,0,0.1);
         }
+
         a {
           text-decoration: none;
           color: black;

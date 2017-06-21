@@ -148,6 +148,7 @@ export class SocialModal extends PureComponent  {
             border: 0;
             font-size: 1.4rem;
             padding-left: 0;
+            font-family: 'brandon';
           }
 
           li:hover {
