@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { Head, GithubBadge } from '../components'
+import { Head, GithubBadge, Title } from '../components'
 
 export default () => (
   <div className='container'>
@@ -13,7 +13,7 @@ export default () => (
 
     <div className='hero'>
       <div className='content'>
-        <h1 style={{marginBottom: '0'}}>Instachrome</h1>
+        <Title content='Instachrome' />
         <p style={{marginTop: '0.5rem', marginBottom: '3rem'}}>Browse instagram from anywhere</p>
         <img src='../static/instachrome.jpg' />
 
@@ -25,7 +25,10 @@ export default () => (
           Add to Google chrome
         </a>
 
-        <h2 style={{marginTop: '8rem'}}>How to video</h2>
+        <div style={{marginTop: '8rem'}}>
+          <Title content='How to video' />
+        </div>
+
         <p style={{maxWidth: '60rem', margin: '0 auto'}}>After installing the chrome extension, simply click the icon and you should be good to go!</p>
         <br />
         <iframe width='100%' height='360' src='https://www.youtube.com/embed/IC9JDy6i4-s' frameborder='0' allowfullscreen></iframe>

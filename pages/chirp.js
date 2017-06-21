@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { GithubBadge, Head } from '../components'
+import { GithubBadge, Head, Title } from '../components'
 
 export default () => (
   <div className='container'>
@@ -13,7 +13,9 @@ export default () => (
 
     <div className='hero'>
       <div className='content'>
-        <h1 style={{marginBottom: '0'}}>Chirp <span style={{fontSize: '3rem'}}>🐦</span></h1>
+
+        <Title content='Chirp 🐦' />
+
         <p style={{marginTop: '0.5rem', marginBottom: '3rem'}}>
           A desktop twitter application built for all platforms
         </p>
@@ -21,7 +23,7 @@ export default () => (
         <img src='../static/chirp.jpg' />
 
         <div className='download-section'>
-          <h3>Downloads</h3>
+          <Title content='Downloads' />
 
           <div className='download-row'>
             <a
@@ -54,7 +56,9 @@ export default () => (
         </div>
 
 
-        <h2 style={{marginTop: '14rem'}}>Video</h2>
+        <div style={{marginTop: '14rem'}}>
+          <Title content='Video' />
+        </div>
         <br />
         <iframe width='100%' height='360' src='https://www.youtube.com/embed/OfysGhGIHp8' frameborder='0' allowfullscreen></iframe>
         <br />

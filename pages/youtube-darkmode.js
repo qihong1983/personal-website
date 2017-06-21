@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { GithubBadge, Head } from '../components'
+import { GithubBadge, Head, Title } from '../components'
 
 export default () => (
   <div className='container'>
@@ -13,7 +13,8 @@ export default () => (
 
     <div className='hero'>
       <div className='content'>
-        <h1 style={{marginBottom: '0'}}>Youtube Darkmode <span style={{fontSize: '3rem'}}>🎉</span></h1>
+        <Title content='Youtube Darkmode' />
+
         <p style={{marginTop: '0.5rem', marginBottom: '3rem'}}>
           Google is redesigning youtube and also adding darkmode, this enables it right now
         </p>
@@ -29,7 +30,9 @@ export default () => (
         </a>
 
 
-        <h2 style={{marginTop: '8rem'}}>How to video</h2>
+        <div style={{marginTop: '8rem'}}>
+          <Title content='How to video' />
+        </div>
         <p style={{maxWidth: '60rem', margin: '0 auto'}}>After installing the chrome extension, simply go to youtube and click "ok", and you'll load up the new youtube interface, from there you can enable darkmode or just enjoy the new white interface.</p>
         <br />
         <iframe width='100%' height='360' src='https://www.youtube.com/embed/plz6bGOb3VI' frameborder='0' allowfullscreen></iframe>
