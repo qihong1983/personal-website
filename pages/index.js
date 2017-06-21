@@ -32,69 +32,62 @@ export default class Landing extends PureComponent {
 
         <div className='body'>
 
-          <section className='container'>
-            <div className='card'>
-              <div className='content'>
-                <div className='intro'>
-                  <Title content='👋 Jack Hanford' size={4} />
-                  <div>I'm a senior software engineer at <a href='https://eaze.com' target='_blank'>Eaze</a>.</div>
-                </div>
-
-                <div className='button-row'>
-                  <button className='beauty-button' onClick={this.toggle}>
-                    Get in touch
-                  </button>
-                </div>
-
-                <div className='arrow-container'>
-                  {/* ← ⬇ */}
-                  <div className='down-arrow'>&rsaquo;</div>
-                </div>
+          <div className='card'>
+            <div className='content'>
+              <div className='intro'>
+                <Title content='👋 Jack Hanford' size={4} />
+                <div>I'm a senior software engineer at <a href='https://eaze.com' target='_blank' className='work'>Eaze</a>.</div>
               </div>
-            </div>
 
-            <div className='card'>
-              <div className='content'>
-                <Title content='🔥 Side Projects & OSS' />
-
-                <div className='projects'>
-                  <Article
-                    path='/instachrome'
-                    name='Instachrome'
-                    about='Browse Instagram from anywhere'
-                  />
-
-                  <Article
-                    path='/chirp'
-                    name='Chirp 🐦'
-                    about='A desktop twitter application built for all platforms'
-                  />
-
-                  <Article
-                    path='https://github.com/hanford/react-drag-drawer'
-                    name='React Drag Drawer'
-                    about='Mobile first ReactJS modal component with native touch gesture support'
-                  />
-
-                  <Article
-                    path='https://github.com/hanford/react-motion-kanban'
-                    name='React Kanban'
-                    about='Custom react drag and drop interface built trello style but with better animations'
-                  />
-
-                  <Article
-                    path='/youtube-darkmode'
-                    name='Youtube Darkmode 🐦'
-                    about='Google is redesigning youtube and also adding darkmode, this enables it right now'
-                  />
-                </div>
-
-                <Link prefetch href='/projects'>
-                  <a className='view-all'>View all</a>
-                </Link>
+              <div className='button-row'>
+                <button className='beauty-button' onClick={this.toggle}>
+                  Get in touch
+                </button>
               </div>
+
             </div>
-          </section>
+          </div>
+
+          <div className='card'>
+            <div className='content'>
+
+              <div className='projects'>
+                <Article
+                  path='/instachrome'
+                  name='Instachrome'
+                  about='Browse Instagram from anywhere'
+                />
+
+                <Article
+                  path='/chirp'
+                  name='Chirp 🐦'
+                  about='A desktop twitter application built for all platforms'
+                />
+
+                <Article
+                  path='https://github.com/hanford/react-drag-drawer'
+                  name='React Drag Drawer'
+                  about='Mobile first ReactJS modal component with native touch gesture support'
+                />
+
+                <Article
+                  path='https://github.com/hanford/react-motion-kanban'
+                  name='React Kanban'
+                  about='Custom react drag and drop interface built trello style but with better animations'
+                />
+
+                <Article
+                  path='/youtube-darkmode'
+                  name='Youtube Darkmode 🐦'
+                  about='Google is redesigning youtube and also adding darkmode, this enables it right now'
+                />
+              </div>
+
+              <Link prefetch href='/projects'>
+                <a className='view-all'>View all</a>
+              </Link>
+            </div>
+          </div>
         </div>
 
         <Drawer
@@ -112,6 +105,7 @@ export default class Landing extends PureComponent {
             display: flex;
             justify-content: center;
             position: relative;
+            flex-direction: column;
             margin: 6rem auto;
           }
 
@@ -123,6 +117,15 @@ export default class Landing extends PureComponent {
 
           .project-about {
             margin-top: 0;
+          }
+
+          a {
+            color: #d40052;
+            text-decoration: none;
+          }
+
+          a:hover {
+            text-decoration: underline;
           }
 
           .projects {
@@ -143,9 +146,10 @@ export default class Landing extends PureComponent {
             font-size: 2rem;
             line-height: 2rem;
             letter-spacing: 0.03em;
-            opacity: 0.9;
             margin: 1rem 0 2rem;
-            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
           }
 
           .intro > div:first-child {
@@ -163,12 +167,13 @@ export default class Landing extends PureComponent {
             padding: 2rem 4rem;
             position: relative;
             margin: 0 auto;
-            padding: 20rem 0 10rem;
+            background-color: white;
           }
 
           @media(max-width: 767px) {
-            .card {
+            .card:first-of-type {
               padding-top: 5rem;
+              padding-bottom: 0;
             }
           }
 
@@ -187,13 +192,6 @@ export default class Landing extends PureComponent {
               opacity: 1;
               transform: scale(1);
             }
-          }
-
-          .button-row {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 1rem;
           }
 
           .beauty-button {
@@ -249,19 +247,6 @@ export default class Landing extends PureComponent {
             }
           }
 
-
-          @keyframes pulseDown {
-            from {
-              transform: translateY(-1rem) rotate(90deg);
-            }
-            50% {
-              transform: translateY(1rem) rotate(90deg);
-            }
-            to {
-              transform: translateY(-1rem) rotate(90deg);
-            }
-          }
-
           .view-all {
             text-align: center;
             width: 100%;
@@ -269,6 +254,7 @@ export default class Landing extends PureComponent {
             color: #D20B54;
             font-weight: bold;
             text-decoration: none;
+            margin-top: 1rem;
           }
 
           .view-all:hover {
