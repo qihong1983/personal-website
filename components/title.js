@@ -3,7 +3,7 @@ export const Title = ({ content, size = 3 }) => (
     <h1 className='title' style={{ fontSize: `${size}rem`}}>{content}</h1>
     <style jsx>{`
       .title {
-        background: linear-gradient(-45deg, #D20B54 0%, #FFB849 100%);
+        background: linear-gradient(-90deg, #D20B54 0%, #FFB849 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         line-height: 4.5rem;

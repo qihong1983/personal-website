@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { Motion, spring } from 'react-motion'
 import Drawer from 'react-drag-drawer'
 
-import { SocialModal, Head, Title } from '../components'
+import { SocialModal, Head, Title, Article } from '../components'
 
 export default class Landing extends PureComponent {
 
@@ -33,7 +33,7 @@ export default class Landing extends PureComponent {
         <div className='body'>
 
           <section className='container'>
-            <div className='card' style={{padding: '20rem 0 10rem'}}>
+            <div className='card'>
               <div className='content'>
                 <div className='intro'>
                   <Title content='👋 Jack Hanford' size={4} />
@@ -41,39 +41,57 @@ export default class Landing extends PureComponent {
                 </div>
 
                 <div className='button-row'>
-                  <button className='beauty-button' onClick={this.toggle}>Get in touch</button>
+                  <button className='beauty-button' onClick={this.toggle}>
+                    Get in touch
+                  </button>
                 </div>
-              </div>
 
-              <div style={{overflow: 'hidden'}}>
-                <div className='down-arrow'>&rsaquo;</div>
+                <div className='arrow-container'>
+                  {/* ← ⬇ */}
+                  <div className='down-arrow'>&rsaquo;</div>
+                </div>
               </div>
             </div>
 
-            <div className='card' style={{paddingTop: '20rem'}}>
+            <div className='card'>
               <div className='content'>
-                <Title content='🔥 Side Projects' />
+                <Title content='🔥 Side Projects & Open source software' />
+
+                <div className='projects'>
+                  <Article
+                    path='/instachrome'
+                    name='Instachrome'
+                    about='Browse Instagram from anywhere'
+                  />
+
+                  <Article
+                    path='/chirp'
+                    name='Chirp 🐦'
+                    about='A desktop twitter application built for all platforms'
+                  />
+
+                  <Article
+                    path='https://github.com/hanford/react-drag-drawer'
+                    name='React Drag Drawer'
+                    about='Mobile first ReactJS modal component with native touch gesture support'
+                  />
+
+                  <Article
+                    path='https://github.com/hanford/react-motion-kanban'
+                    name='React Kanban'
+                    about='Custom react drag and drop interface built trello style but with better animations'
+                  />
+
+                  <Article
+                    path='/youtube-darkmode'
+                    name='Youtube Darkmode 🐦'
+                    about='Google is redesigning youtube and also adding darkmode, this enables it right now'
+                  />
+                </div>
 
                 <Link prefetch href='/projects'>
-                  <a className='beauty-button'>Open source</a>
+                  <a className='view-all'>View all</a>
                 </Link>
-
-                <div>
-                  <Link href='/chirp'>
-                    <a target='_blank'>Chirp 🐦</a>
-                  </Link>
-
-                  <br />
-                  <Link href='/instachrome'>
-                    <a target='_blank'>Instachrome</a>
-                  </Link>
-
-                  <br />
-
-                  <Link href='/youtube-darkmode'>
-                    <a target='_blank'>Youtube Darkmode</a>
-                  </Link>
-                </div>
               </div>
             </div>
           </section>
@@ -97,10 +115,20 @@ export default class Landing extends PureComponent {
             margin: 6rem auto;
           }
 
-          a {
+          .project-title {
             color: #d40052;
-            font-weight: 600;
-            text-decoration: underline;
+            margin: 0;
+            font-size: 1.8rem;
+          }
+
+          .project-about {
+            margin-top: 0;
+          }
+
+          .projects {
+            text-align: left;
+            max-width: 100%;
+            width: 70rem;
           }
 
           .container {
@@ -135,19 +163,19 @@ export default class Landing extends PureComponent {
             padding: 2rem 4rem;
             position: relative;
             margin: 0 auto;
+            padding: 20rem 0 10rem;
           }
 
           @media(max-width: 767px) {
             .card {
-              padding-top: 1rem;
+              padding-top: 5rem;
             }
           }
 
           .content {
             animation: fadeIn 0.6s linear;
-            max-width: 50rem;
+            max-width: 55rem;
             margin: 0 auto;
-            text-align: center;
           }
 
           @keyframes fadeIn {
@@ -193,15 +221,22 @@ export default class Landing extends PureComponent {
             transform: scale(1.1);
           }
 
-          .down-arrow {
+          .arrow-container {
             margin-top: 10rem;
             width: 100%;
             text-align: center;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            overflow: hidden;
+          }
+
+          .down-arrow {
             font-size: 6rem;
             background: linear-gradient(-45deg, #D20B54 0%, #FFB849 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: pulseDown 2s ease-out infinite;
+            animation: pulseDown 4s ease-out infinite;
           }
 
           @keyframes hue {
@@ -225,6 +260,19 @@ export default class Landing extends PureComponent {
             to {
               transform: translateY(-1rem) rotate(90deg);
             }
+          }
+
+          .view-all {
+            text-align: center;
+            width: 100%;
+            display: block;
+            color: #D20B54;
+            font-weight: bold;
+            text-decoration: none;
+          }
+
+          .view-all:hover {
+            text-decoration: underline;
           }
         `}</style>
       </div>
