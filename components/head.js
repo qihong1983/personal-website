@@ -35,12 +35,10 @@ export const Head = ({ title }) => (
       #__next {
         font-family: Brandon, Arial;
         width: 100%;
-        overflow: auto;
         margin: 0;
         padding: 0;
         font-size: 10px;
-        background: linear-gradient(-45deg, #D20B54 0%, #FFB849 100%) no-repeat center center fixed;
-        backround-size: cover
+        background: linear-gradient(-45deg, #D20B54, #FFB849);
       }
 
       * {

@@ -3,11 +3,7 @@ import Link from 'next/link'
 import { Motion, spring } from 'react-motion'
 import Drawer from 'react-drag-drawer'
 
-import { SocialModal, TiltedBack, Head } from '../components'
-
-const name = (
-  <span style={{fontWeight: 600}}>Jack Hanford</span>
-)
+import { SocialModal, Head, Title } from '../components'
 
 export default class Landing extends PureComponent {
 
@@ -34,25 +30,33 @@ export default class Landing extends PureComponent {
       <div>
         <Head />
 
-        <TiltedBack />
-
         <div className='body'>
 
           <section className='container'>
-            <div className='card'>
+            <div className='card' style={{padding: '20rem 0 10rem'}}>
               <div className='content'>
-                <div className='waver'>👋</div>
                 <div className='intro'>
-                  <div>Hi I'm {name}</div>
+                  <Title content='👋 Jack Hanford' size={4} />
                   <div>I'm a senior software engineer at <a href='https://eaze.com' target='_blank'>Eaze</a>.</div>
                 </div>
 
                 <div className='button-row'>
-                  <Link prefetch href='/projects'>
-                    <a className='beauty-button'>Open source</a>
-                  </Link>
-                  <button className='beauty-button' onClick={this.toggle}>Contact me</button>
+                  <button className='beauty-button' onClick={this.toggle}>Get in touch</button>
                 </div>
+              </div>
+
+              <div style={{overflow: 'hidden'}}>
+                <div className='down-arrow'>&rsaquo;</div>
+              </div>
+            </div>
+
+            <div className='card' style={{paddingTop: '20rem'}}>
+              <div className='content'>
+                <Title content='🔥 Side Projects' />
+
+                <Link prefetch href='/projects'>
+                  <a className='beauty-button'>Open source</a>
+                </Link>
 
                 <div>
                   <Link href='/chirp'>
@@ -70,7 +74,6 @@ export default class Landing extends PureComponent {
                     <a target='_blank'>Youtube Darkmode</a>
                   </Link>
                 </div>
-
               </div>
             </div>
           </section>
@@ -91,8 +94,7 @@ export default class Landing extends PureComponent {
             display: flex;
             justify-content: center;
             position: relative;
-            background-color: white;
-            justify-content: center;
+            margin: 6rem auto;
           }
 
           a {
@@ -104,6 +106,9 @@ export default class Landing extends PureComponent {
           .container {
             width: 100%;
             color: #32325d;
+            box-shadow: 0px -10px 35px rgba(0, 0, 0, 0.2);
+            background-color: white;
+            padding: 2rem;
           }
 
           .intro {
@@ -112,6 +117,7 @@ export default class Landing extends PureComponent {
             letter-spacing: 0.03em;
             opacity: 0.9;
             margin: 1rem 0 2rem;
+            text-align: center;
           }
 
           .intro > div:first-child {
@@ -124,13 +130,11 @@ export default class Landing extends PureComponent {
           }
 
           .card {
-            width: 50rem;
-            max-width: 100%;
+            width: 100%;
             color: #32325d;
             padding: 2rem 4rem;
-            padding-top: 16rem;
             position: relative;
-            margin: 0 auto
+            margin: 0 auto;
           }
 
           @media(max-width: 767px) {
@@ -141,6 +145,9 @@ export default class Landing extends PureComponent {
 
           .content {
             animation: fadeIn 0.6s linear;
+            max-width: 50rem;
+            margin: 0 auto;
+            text-align: center;
           }
 
           @keyframes fadeIn {
@@ -156,39 +163,15 @@ export default class Landing extends PureComponent {
 
           .button-row {
             display: flex;
-            margin: 1rem auto;
-
             align-items: center;
-            justify-content: space-between;
-            width: 100%;
-          }
-
-          @media(max-width: 767px) {
-            .button-row {
-              flex-direction: column;
-            }
-          }
-
-          .button-row a,
-          .button-row button {
-            text-align: center;
-            width: 100%;
-            margin-right: 1rem;
-          }
-
-          @media(max-width: 767px) {
-            .button-row a,
-            .button-row button {
-              margin-right: 0;
-              margin-top: 1.5rem;
-            }
+            justify-content: center;
+            margin-top: 1rem;
           }
 
           .beauty-button {
             display: block;
             line-height: 4rem;
             padding: 0 1.4rem;
-            box-shadow: 0 0.4rem 0.6rem rgba(50,50,93,.11), 0 0.1rem 0.3rem rgba(0,0,0,.08);
             background: #fff;
             border-radius: 0.4rem;
             font-size: 1.2rem;
@@ -207,18 +190,44 @@ export default class Landing extends PureComponent {
           }
 
           .beauty-button:hover {
-            transform: scale(1.05);
+            transform: scale(1.1);
           }
 
-          .waver {
-            font-size: 4rem;
+          .down-arrow {
+            margin-top: 10rem;
+            width: 100%;
+            text-align: center;
+            font-size: 6rem;
+            background: linear-gradient(-45deg, #D20B54 0%, #FFB849 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: pulseDown 2s ease-out infinite;
+          }
+
+          @keyframes hue {
+            from {
+              filter: hue-rotate(0deg);
+            }
+
+            to {
+              filter: hue-rotate(-360deg);
+            }
+          }
+
+
+          @keyframes pulseDown {
+            from {
+              transform: translateY(-1rem) rotate(90deg);
+            }
+            50% {
+              transform: translateY(1rem) rotate(90deg);
+            }
+            to {
+              transform: translateY(-1rem) rotate(90deg);
+            }
           }
         `}</style>
       </div>
     )
   }
 }
-
-// <Link href='/writing'>
-//   <a className='beauty-button'>Writing</a>
-// </Link>

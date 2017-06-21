@@ -1,11 +1,15 @@
-export const Title = ({ content }) => (
+export const Title = ({ content, size = 3 }) => (
   <div>
-    <div className='title'>{content}</div>
+    <h1 className='title' style={{ fontSize: `${size}rem`}}>{content}</h1>
     <style jsx>{`
       .title {
-        letter-spacing: 0.03em;
-        font-size: 2rem;
-        font-weight: 700;
+        background: linear-gradient(-45deg, #D20B54 0%, #FFB849 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        line-height: 4rem;
+        font-family: brandon;
+        font-weight: 600;
+        color: #D20B54;
       }
     `}</style>
   </div>
